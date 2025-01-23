@@ -1,4 +1,4 @@
-# Event Logger
+# EventPulse
 
 A simple event logger application using Golang and Apache Kafka.
 
