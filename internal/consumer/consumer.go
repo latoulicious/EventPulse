@@ -45,7 +45,7 @@ func (c *Consumer) Start() {
 		default:
 			msg, err := c.c.ReadMessage(-1)
 			if err == nil {
-				fmt.Printf("Consumed message from topic %s: %s\n", msg.TopicPartition.Topic, string(msg.Value))
+				fmt.Printf("Consumed message from topic %s: %s\n", *msg.TopicPartition.Topic, string(msg.Value))
 			} else {
 				fmt.Printf("Consumer error: %v (%v)\n", err, msg)
 			}

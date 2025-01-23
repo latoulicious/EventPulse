@@ -6,9 +6,9 @@ import (
 	"os/signal"
 	"syscall"
 
-	"eventpulse/internal/config"
-	"eventpulse/internal/consumer"
-	"eventpulse/internal/producer"
+	"github.com/latoulicious/EventPulse/internal/config"
+	"github.com/latoulicious/EventPulse/internal/consumer"
+	"github.com/latoulicious/EventPulse/internal/producer"
 )
 
 func main() {
@@ -18,8 +18,8 @@ func main() {
 	}
 
 	// Initialize producer and consumer
-	prod := producer.NewProducer(cfg.KafkaBrokers)
-	cons := consumer.NewConsumer(cfg.KafkaBrokers, cfg.Topic)
+	prod := producer.NewProducer(cfg.KafkaBrokers) // Pass the single string
+	cons := consumer.NewConsumer([]string{cfg.KafkaBrokers}, cfg.Topic)
 
 	// Start producer and consumer
 	go prod.Start(cfg.Topic)

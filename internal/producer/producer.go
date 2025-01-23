@@ -12,8 +12,8 @@ type Producer struct {
 	p *kafka.Producer
 }
 
-func NewProducer(brokers []string) *Producer {
-	p, err := kafka.NewProducer(&kafka.ConfigMap{"bootstrap.servers": brokers})
+func NewProducer(broker string) *Producer { // Change to accept a single string
+	p, err := kafka.NewProducer(&kafka.ConfigMap{"bootstrap.servers": broker})
 	if err != nil {
 		log.Fatalf("Failed to create producer: %s", err)
 	}

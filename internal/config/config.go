@@ -7,8 +7,8 @@ import (
 )
 
 type Config struct {
-	KafkaBrokers []string `mapstructure:"KAFKA_BROKERS"`
-	Topic        string   `mapstructure:"TOPIC"`
+	KafkaBrokers string `mapstructure:"KAFKA_BROKERS"` // Change to string
+	Topic        string `mapstructure:"TOPIC"`
 }
 
 func LoadConfig() (*Config, error) {
